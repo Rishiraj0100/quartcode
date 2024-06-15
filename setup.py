@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""flaskcode module setup"""
+"""quartcode module setup"""
 import os
 from setuptools import setup
 
@@ -13,7 +13,7 @@ def readme():
 
 
 def get_pkginfo():
-    with open(os.path.join(BASEDIR, 'flaskcode', '__pkginfo__.py'), 'r') as f:
+    with open(os.path.join(BASEDIR, 'quartcode', '__pkginfo__.py'), 'r') as f:
         context = {}
         exec(f.read(), context)
         if 'version' in context:
@@ -34,25 +34,25 @@ setup(
     description=pkginfo['description'],
     long_description=readme(),
     long_description_content_type='text/markdown',
-    keywords='flaskcode code editor code-editor',
-    packages=['flaskcode'],
+    keywords='quartcode editor code-editor',
+    packages=['quartcode'],
     include_package_data=True,
     zip_safe=False,
     platforms='any',
     entry_points={
         'console_scripts': [
-            'flaskcode = flaskcode.cli:main',
+            'quartcode = quartcode.cli:main',
         ]
     },
     python_requires='>=3.6',
     install_requires=[
-        'flask',
+        'quart',
     ],
     setup_requires=[
         'pytest-runner',
     ],
     tests_require=[
-        'flask',
+        'quart',
         'pytest>=4.5.0',
     ],
     classifiers=[
@@ -65,7 +65,7 @@ setup(
         # 'Development Status :: 7 - Inactive',
         'Intended Audience :: Developers',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Topic :: Internet :: WWW/HTTP',
